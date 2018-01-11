@@ -3,8 +3,14 @@ public class Strings
 {
 	public static void main(String[] args)
 	{
-		print(stringToInteger("2234")); // should return integer 2234
-		print(integerToString(-232));		//should return "-232"		
+		//print(stringToInteger("2234")); // should return integer 2234
+		//print(integerToString(-232));		//should return "-232"	
+		
+		print(encoding("ZZ"));
+		print(encoding("AAA"));
+		print(encoding("Z"));
+		print(encoding("ZY"));
+		print(encoding("CCC"));
 	}
 
 	/*
@@ -64,10 +70,26 @@ public class Strings
 		return num;
 		
 	}
+	/*
+	 * Compute spreadsheet column encoding
+	 */
+	public static int encoding(String col)
+	{
+		int res = 0;
+		for(int i = 0 ; i < col.length(); i++)
+		{
+			int c = col.charAt(i) - 64;	//because a is 1 not 0
+			//if (c - 64)
+			res = res * 26 + c;		
+			
+		}
+		return res;
+		
+	}
 	
 	public static void print(Object x)
 	{
-		System.out.println(x.getClass() + " " + x);
-		
+		System.out.println(x.getClass() + " " + x);	
 	}
+	
 }
